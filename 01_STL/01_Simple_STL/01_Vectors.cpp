@@ -1,3 +1,4 @@
+// Vectors
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -56,7 +57,8 @@ int main(){
     // Deletion
     v.pop_back();               // Remove last element
     // v.clear();               // Clear the vector
-    // v.erase(v.begin() + 2);  // Erase element at index 2
+    // v.erase(v.begin() + 2, v.begin() + 4);  // Erase element at index 2 to 4
+    print_vector_with_iterator(v);
     
     v.push_back(4);
     v.push_back(3);
