@@ -67,33 +67,42 @@ int main(){
     v.insert(v.begin() + 2, 100); // Insert 100 at index 2
     print_vector_with_rangeloop(v);
     
+    // Sorting
     sort(v.rbegin(), v.rend());  // Sort Descending
     print_vector_with_rangeloop(v);
     sort(v.begin(), v.end());    // Sort Ascending
     print_vector_with_rangeloop(v);
 
+    // Iterators
     auto first_element =  *v.begin();    // Gives first element
     auto last_element = *v.rbegin();     // Gives last element
     auto end =  v.end();        // Iterator past the last element address
     auto begin = v.rend();   // Iterator before the first element address
 
-    cout << first_element << endl;
-    cout << last_element << endl;
+    cout << "First Element: " << first_element << endl;
+    cout << "Last Element: " << last_element << endl;
 
     print_vector_with_index(v);
 
     // Binary Search (On must be sorted ascending order)
     auto lo = lower_bound(v.begin(), v.end(), 4);  // iterator to first x  
     auto up = upper_bound(v.begin(), v.end(), 4);  // iterator just past the last x
-    cout << *lo << endl;
-    cout << *up << endl;
+    auto lo_index = lo - v.begin();  // index of first x
+    auto lo_value = *lo;  // value of first x
+    auto up_index = up - v.begin();  // index just past the last x
+    auto up_value = *up;  // value just past the last x
 
+    cout << "Lower Bound Value: " << lo_value << endl;
+    cout << "Lower Bound Index: " << lo_index << endl;
+    cout << "Upper Bound Value: " << up_value << endl;
+    cout << "Upper Bound Index: " << up_index << endl;
+
+    // Max, Min Elements & Indexes and Sum
     auto mn = *min_element(v.begin(), v.end()); // Max element 
     auto mx = *max_element(v.begin(), v.end()); // Max element
     auto mn_index = min_element(v.begin(), v.end()) - v.begin(); // Index of max element
     auto mx_index = max_element(v.begin(), v.end()) - v.begin(); // Index of min element
     auto sum = accumulate(v.begin(), v.end(), 0);  // Sum of all elements  
-
 
     cout << "Minimum Element: " << mn << endl;
     cout << "Maximum Element: " << mx << endl;
