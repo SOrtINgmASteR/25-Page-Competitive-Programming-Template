@@ -26,7 +26,6 @@ void print_vector_with_rangeloop(vector<int> &v){
     cout << endl;
 }
 
-
 int main(){
 #ifndef ONLINE_JUDGE
     freopen("../../input.txt", "r", stdin);
@@ -35,7 +34,7 @@ int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    int n;
+    int n, x = 4;
     cin >> n;
     
     // Declaration   
@@ -85,8 +84,14 @@ int main(){
     cout << "Last Element: " << last_element << endl;
 
     print_vector_with_index(v);
-
-    // Binary Search (On must be sorted ascending order)
+    
+    // Find x in vector
+    auto it = find(v.begin(), v.end(), x); 
+    if(it != v.end()){
+        int element = *it;          // Element found
+        int index = it - v.begin(); // Index  found
+    } 
+    
     auto lo = lower_bound(v.begin(), v.end(), 4);  // iterator to first x  
     auto up = upper_bound(v.begin(), v.end(), 4);  // iterator just past the last x
     auto lo_index = lo - v.begin();  // index of first x
@@ -111,6 +116,8 @@ int main(){
     cout << "Index of Minimum Element: " << mn_index << endl;
     cout << "Index of Maximum Element: " << mx_index << endl;
     cout << "Sum of all Elements: " << sum << endl;
+
+    print_vector_with_rangeloop(v);
 
     return 0;
 }
